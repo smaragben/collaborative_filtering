@@ -1,5 +1,5 @@
 # Εξαμηνιαία Εργασία μαθήματος Ανάλυση και Σχεδιασμός Πληροφοριακών συστημάτων
-Στην εργασία αυτή υλοποιείται σύστημα συστάσεων με την τεχνική συνεργατικού φιλτραρίσματος. Το notebook μπορέί να βρεθεί και στο kaggle: αλλά και σε αυτό το repository.
+Στην εργασία αυτή υλοποιείται σύστημα συστάσεων με την τεχνική συνεργατικού φιλτραρίσματος. Το notebook μπορέί να βρεθεί και στο kaggle: https://www.kaggle.com/code/smaragdaben/issp-project αλλά και σε αυτό το repository.
 Δίνονται τα αρχεία configuration του περιβάλλοντος Apache σε Yarn με HDFS αλλά και το αρχείο svd.py στο οποίο υπολογίζεται ο SVD.
 
 
@@ -39,10 +39,7 @@ start-yarn.sh
 ```
 spark-submit --deploy-mode cluster --num-executors 2 --executor-cores 4 <python_script_path>
 ```  
-Για 1 worker  
-```  
-spark-submit --deploy-mode cluster --num-executors 2 --executor-cores 4 <python_script_path>
-```
+
 
 7. Για να δούμε το output του παραπάνω script μετά την εκτέλεσή του γνωρίζοντας το appId από τις λεπτομέρειες της εκτέλεσης:
 ```
