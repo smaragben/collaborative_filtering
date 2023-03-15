@@ -37,7 +37,7 @@ start-yarn.sh
 6.Για να τρέξουμε ένα από τα script στο cluster χρησιμοποιούμε την εντολή:  
 Για 2 workers  
 ```
-spark-submit --deploy-mode cluster --num-executors 2 --executor-cores 4 <python_script_path>
+PYSPARK_PYTHON=./environment/bin/python PYSPARK_DRIVER_PYTHON=./environment/bin/python spark-submit --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./environment/bin/python  --deploy-mode cluster  --num-executors 2 --executor-cores 4 --archives environment3.tar.gz#environment <python_script_path>
 ```  
 
 
