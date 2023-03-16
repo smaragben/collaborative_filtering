@@ -24,6 +24,8 @@ data_df = data_df.drop("user_id")
 k = 10 #dimensions
 data_df = data_df.select(*( F.col(col).cast("double").alias(col) for col in data_df.columns))
 data_df_na = data_df.fillna(value=0)
+mean_cols = [(mean(col(c)).over(Window.partitionBy())) for c in data_df_na.columns]
+data_df_na = data_df_na.select(*[(col(c) - mean_cols[i]).alias(c) for i, c in enumerate(data_df_na.columns)])
 your_rdd = data_df_na.rdd.map(list)
 rowmatrix=RowMatrix(your_rdd)
 svd = rowmatrix.computeSVD(k, computeU=True)
